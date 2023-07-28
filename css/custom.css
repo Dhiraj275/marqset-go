@@ -1,3 +1,98 @@
-.plus-decoretor::after{
+@font-face {
+    font-family: "Oswald-semibold";
+    src: url(../assets/fonts/Oswald-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Oswald-Light";
+    src: url(../assets/fonts/Oswald-Light.ttf);
+}
+
+@font-face {
+    font-family: "Oswald-Regular";
+    src: url(../assets/fonts/Oswald-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Georgia";
+    src: url(../assets/fonts/Georgia.ttf);
+}
+
+.plus-decoretor::after {
     content: "+";
+}
+
+p {
+    font-family: "Georgia";
+}
+
+.title {
+    font-size: 60px;
+}
+
+.alt-font {
+    font-family: "Oswald-Regular" !important;
+}
+
+.brand-numbers span {
+    font-family: "Georgia";
+}
+
+.services .heading .title {
+    line-height: normal;
+}
+
+.services .bg-white .alt-font {
+    font-family: "Oswald-semibold";
+    font-weight: normal;
+}
+
+.quote h5 {
+    font-family: "Georgia";
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.quote h3 {
+    font-size: 50px;
+}
+
+.hexagon-wrap {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.counter-feature-box-1 {
+    background: unset !important;
+    border: 0 solid #fff !important;
+    transition: 0.4s;
+}
+
+.counter-feature-box-1:hover {
+    scale: 1.05;
+    filter: drop-shadow(0 0 10px #dc0000);
+}
+
+.counter-feature-box-1 span {
+    font-weight: normal;
+}
+
+.card-inner {
+    background: transparent;
+    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+    width: 180px;
+    height: 220px !important;
+    color: #fff;
+    filter: drop-shadow(77px 16px 165px #000);
+    background-position: center;
+    box-shadow: 1px 1px 2px #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: drop-shadow(77px 16px 165px #000);
+    background-image: url(/images/UX/bg_1.jpg);
+}
+
+.card-inner .alt-font {
+    color: #fff;
 }
