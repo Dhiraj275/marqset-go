@@ -61,6 +61,7 @@ p {
 .hexagon-wrap {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .counter-feature-box-1 {
@@ -76,6 +77,10 @@ p {
 
 .counter-feature-box-1 span {
     font-weight: normal;
+}
+
+.card-outer {
+    margin: 30px 0;
 }
 
 .card-inner {
@@ -95,4 +100,22 @@ p {
 
 .card-inner .alt-font {
     color: #fff;
+}
+
+@media (max-width: 891px) {
+    .title {
+        font-size: 30px;
+    }
+
+    .title-s {
+        font-size: 15px;
+    }
+
+    .quote h5 {
+        font-size: 18px;
+    }
+
+    .quote h3 {
+        font-size: 30px;
+    }
 }
