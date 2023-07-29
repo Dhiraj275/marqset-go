@@ -18,6 +18,20 @@
     src: url(../assets/fonts/Georgia.ttf);
 }
 
+:root {
+    --brandRed: #dc0000;
+    --brandBlue: #003eb1;
+}
+.brand-red{
+    color: var(--brandRed);
+}
+.brand-blue{
+    color: var(--brandBlue);
+}
+.tp-caption .alt-font{
+    color: #000;
+}
+
 .plus-decoretor::after {
     content: "+";
 }
@@ -37,9 +51,11 @@ p {
 .brand-numbers span {
     font-family: "Georgia";
 }
-.services-2{
+
+.services-2 {
     margin: 30px;
 }
+
 .services .heading .title {
     line-height: normal;
 }
@@ -104,6 +120,18 @@ p {
     color: #fff;
 }
 
+.testimonials .swiper-slide .alt-font {
+    color: var(--brandBlue);
+}
+.testimonials i{
+    color: var(--brandRed);
+}
+
+.title-s {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: "Oswald-SemiBold";
+}
 @media (max-width: 891px) {
     .title {
         font-size: 30px;
@@ -116,9 +144,11 @@ p {
     .quote h5 {
         font-size: 18px;
     }
-    .services-2{
+
+    .services-2 {
         margin: 0px;
     }
+
     .quote h3 {
         font-size: 30px;
     }
