@@ -37,7 +37,9 @@ p {
 .brand-numbers span {
     font-family: "Georgia";
 }
-
+.services-2{
+    margin: 30px;
+}
 .services .heading .title {
     line-height: normal;
 }
@@ -114,7 +116,9 @@ p {
     .quote h5 {
         font-size: 18px;
     }
-
+    .services-2{
+        margin: 0px;
+    }
     .quote h3 {
         font-size: 30px;
     }
