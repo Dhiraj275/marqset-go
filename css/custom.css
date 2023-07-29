@@ -22,14 +22,24 @@
     --brandRed: #dc0000;
     --brandBlue: #003eb1;
 }
-.brand-red{
-    color: var(--brandRed);
+
+header.sticky nav {
+    background-color: #fff !important;
 }
-.brand-blue{
+
+.brand-red {
+    color: var(--brandRed);
+    text-transform: capitalize !important;
+}
+
+.brand-blue {
+    text-transform: capitalize !important;
     color: var(--brandBlue);
 }
-.tp-caption .alt-font{
+
+.tp-caption .alt-font {
     color: #fff;
+    text-shadow: 2px 2px 15px #000000a9;
 }
 
 .plus-decoretor::after {
@@ -123,8 +133,25 @@ p {
 .testimonials .swiper-slide .alt-font {
     color: var(--brandBlue);
 }
-.testimonials i{
+
+.testimonials i {
     color: var(--brandRed);
+}
+
+.testimonials .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 105px;
+    position: unset;
+}
+
+.testimonials .text-dark {
+    color: #000 !important;
+}
+
+.testimonials p {
+    height: 220px;
 }
 
 .title-s {
@@ -132,6 +159,7 @@ p {
     margin-bottom: 10px;
     font-family: "Oswald-SemiBold";
 }
+
 @media (max-width: 891px) {
     .title {
         font-size: 30px;
@@ -151,5 +179,9 @@ p {
 
     .quote h3 {
         font-size: 30px;
+    }
+
+    .testimonials p {
+        height: auto;
     }
 }
