@@ -29,7 +29,7 @@
     color: var(--brandBlue);
 }
 .tp-caption .alt-font{
-    color: #000;
+    color: #fff;
 }
 
 .plus-decoretor::after {
