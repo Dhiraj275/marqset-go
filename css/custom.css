@@ -23,8 +23,35 @@
     --brandBlue: #003eb1;
 }
 
+.brand-button {
+    background: transparent;
+    color: white;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 2px;
+    padding: 5px 18px;
+    border-radius: 3px;
+    font-weight: 300;
+    transition: all 1s;
+    border-image-source: linear-gradient(to left, var(--brandBlue), var(--brandRed));
+}
+
+.brand-button:hover {
+    border-image-source: linear-gradient(90deg, var(--brandBlue), var(--brandRed));
+
+}
+
 header.sticky nav {
     background-color: #fff !important;
+}
+
+.header-social-icon {
+    display: flex !important;
+}
+
+.header-social-icon img {
+    width: 20px;
+    margin-left: 10px;
 }
 
 .brand-red {
@@ -46,8 +73,10 @@ header.sticky nav {
     content: "+";
 }
 
-p {
+p,
+.title-p {
     font-family: "Georgia";
+    text-transform: unset;
 }
 
 .title {
@@ -60,6 +89,14 @@ p {
 
 .brand-numbers span {
     font-family: "Georgia";
+}
+
+.services {
+    background-image: linear-gradient(90deg, #0b0b0b, #1c1c1c);
+}
+
+.services img {
+    width: 80px;
 }
 
 .services-2 {
@@ -75,15 +112,53 @@ p {
     font-weight: normal;
 }
 
+.services .red .feature-box-overlay {
+    height: 5px;
+    background: var(--brandRed);
+}
+
+.services .blue .feature-box-overlay {
+    height: 5px;
+    background: var(--brandBlue);
+}
+
+.services .red .feature-box-8:hover .feature-box-overlay {
+    background: var(--brandBlue);
+}
+
+.services .blue .feature-box-8:hover .feature-box-overlay {
+    background: var(--brandRed);
+}
+
+q::before {
+    color: var(--brandBlue);
+}
+
+q::after {
+    color: var(--brandRed);
+}
+
 .quote h5 {
-    font-family: "Georgia";
-    font-size: 20px;
+    font-family: "Oswald-SemiBold";
+    font-size: 25px;
     font-weight: normal;
     margin-bottom: 5px;
+    color: #ffd5d5;
 }
 
 .quote h3 {
     font-size: 50px;
+}
+
+.quote-section {
+    font-family: "Oswald-SemiBold";
+    text-align: center;
+    color: #000;
+    background-image: url(/assets/home_images/MarqSet_Icon.png);
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 200px 0;
 }
 
 .hexagon-wrap {
@@ -98,10 +173,7 @@ p {
     transition: 0.4s;
 }
 
-.counter-feature-box-1:hover {
-    scale: 1.05;
-    filter: drop-shadow(0 0 10px #dc0000);
-}
+
 
 .counter-feature-box-1 span {
     font-weight: normal;
@@ -109,21 +181,31 @@ p {
 
 .card-outer {
     margin: 30px 0;
+    background-color: transparent;
 }
 
 .card-inner {
     background: transparent;
-    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
-    width: 180px;
+    width: 190px;
     height: 220px !important;
     color: #fff;
-    filter: drop-shadow(77px 16px 165px #000);
-    background-position: center;
-    box-shadow: 1px 1px 2px #000;
-    background-repeat: no-repeat;
     background-size: cover;
-    filter: drop-shadow(77px 16px 165px #000);
-    background-image: url(/images/UX/bg_1.jpg);
+}
+
+.card-inner.card-1 {
+    background-image: url(/assets/home_images/Polygon_1.png);
+}
+
+.card-inner.card-2 {
+    background-image: url(/assets/home_images/Polygon_2.png);
+}
+
+.card-inner.card-3 {
+    background-image: url(/assets/home_images/Polygon_3.png);
+}
+
+.card-inner.card-4 {
+    background-image: url(/assets/home_images/Polygon_4.png);
 }
 
 .card-inner .alt-font {
@@ -150,7 +232,7 @@ p {
     color: #000 !important;
 }
 
-.testimonials p {
+.testimonials .swiper-slide p {
     height: 220px;
 }
 
@@ -158,6 +240,15 @@ p {
     font-size: 20px;
     margin-bottom: 10px;
     font-family: "Oswald-SemiBold";
+}
+
+.contact img {
+    max-width: 70px !important;
+    margin-bottom: 10px;
+}
+
+footer .small-icon img {
+    width: 20px;
 }
 
 @media (max-width: 891px) {
