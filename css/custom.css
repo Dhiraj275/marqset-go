@@ -60,7 +60,7 @@
 }
 
 .portfolio .brand-button:hover {
-    background: #fff;
+    background: transparent;
 }
 
 .portfolio .brand-button span {
@@ -68,9 +68,7 @@
 }
 
 .portfolio .brand-button:hover span {
-    background-image: -webkit-linear-gradient(180deg, var(--brandBlue), var(--brandRed));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
 }
 
 header nav {
@@ -120,7 +118,9 @@ p,
     font-family: "Georgia";
     text-transform: unset;
 }
-
+.title-p {
+    font-size: 18px;
+}
 .title {
     font-size: 60px;
 }
