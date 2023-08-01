@@ -21,12 +21,14 @@
 :root {
     --brandRed: #dc0000;
     --brandBlue: #003eb1;
+    --brandBlueLight: #2370ff;
 }
 
-.social-media-icons img {
-    width: 30px !important;
+.tp-caption span {
+    font-size: 70px !important;
 }
-.social-media-icons a{
+
+.social-media-icons a {
     margin-right: 10px;
 }
 
@@ -35,7 +37,7 @@
     color: white;
     border: 10px solid;
     border-image-slice: 1;
-    border-width: 2px;
+    border-width: 3px;
     padding: 5px 18px;
     border-radius: 3px;
     font-weight: 300;
@@ -46,6 +48,29 @@
 .brand-button:hover {
     border-image-source: linear-gradient(90deg, var(--brandBlue), var(--brandRed));
 
+}
+
+.portfolio .brand-button {
+    font-size: 20px;
+    padding: 16px 40px;
+    transition: 1s;
+    line-height: 18px;
+    font-family: "Oswald-SemiBold";
+    background: linear-gradient(to right, var(--brandBlue), var(--brandRed));
+}
+
+.portfolio .brand-button:hover {
+    background: #fff;
+}
+
+.portfolio .brand-button span {
+    color: #fff;
+}
+
+.portfolio .brand-button:hover span {
+    background-image: -webkit-linear-gradient(180deg, var(--brandBlue), var(--brandRed));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header nav {
@@ -77,6 +102,10 @@ header.sticky nav {
     color: var(--brandBlue);
 }
 
+.brand-blue-light {
+    color: var(--brandBlueLight);
+}
+
 .tp-caption .alt-font {
     color: #fff;
     text-shadow: 2px 2px 15px #000000a9;
@@ -96,6 +125,10 @@ p,
     font-size: 60px;
 }
 
+.title-s {
+    font-size: 30px;
+}
+
 .alt-font {
     font-family: "Oswald-Regular" !important;
 }
@@ -103,26 +136,31 @@ p,
 .brand-numbers span {
     font-family: "Georgia";
 }
-.brand-numbers h6{
+
+.brand-numbers h6 {
     font-size: 40px;
 }
 
 .services {
     background-image: linear-gradient(90deg, #0b0b0b, #1c1c1c);
 }
-.logos-wrap{
+
+.logos-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.logos-wrap img{
+
+.logos-wrap img {
     width: 100px;
     cursor: pointer;
     transition: 0.2s;
 }
-.logos-wrap img:hover{
+
+.logos-wrap img:hover {
     scale: 1.1;
 }
+
 .services img {
     width: 80px;
 }
@@ -158,6 +196,20 @@ p,
     background: var(--brandRed);
 }
 
+.services .red .alt-font {
+    color: var(--brandRed);
+    font-size: 20px;
+}
+
+.services .blue .alt-font {
+    color: var(--brandBlue);
+    font-size: 20px;
+}
+
+.services .feature-box-8:hover .alt-font {
+    color: #fff;
+}
+
 q::before {
     color: var(--brandBlue);
 }
@@ -176,6 +228,7 @@ q::after {
 
 .quote h3 {
     font-size: 65px;
+    margin-bottom: 0px;
 }
 
 .quote-section {
@@ -213,7 +266,7 @@ q::after {
 }
 
 .card-outer h5 {
-    font-size: 16px;
+    font-size: 18px;
     color: #000;
     margin-top: 30px;
     font-family: "Georgia";
@@ -269,6 +322,7 @@ q::after {
 
 .testimonials .swiper-slide p {
     height: 220px;
+    font-style: italic;
 }
 
 .title-s {
@@ -283,16 +337,31 @@ q::after {
 }
 
 footer .small-icon img {
-    width: 20px;
+    width: 25px;
 }
 
 @media (max-width: 891px) {
+    .tp-caption span {
+        font-size: 35px !important;
+    }
+
     .title {
         font-size: 30px;
     }
 
     .title-s {
-        font-size: 15px;
+        font-size: 18px;
+    }
+
+    .portfolio .brand-button {
+        font-size: 14px;
+        padding: 6px 20px;
+        font-family: "Oswald-SemiBold";
+        margin-bottom: 10px;
+    }
+
+    .feature-box-8 {
+        padding: 30px 0 !important;
     }
 
     .quote h5 {
@@ -309,5 +378,16 @@ footer .small-icon img {
 
     .testimonials p {
         height: auto;
+    }
+
+    .card-inner {
+        width: 155px;
+        height: 180px !important;
+        background-size: contain;
+    }
+
+    .card-outer h5 {
+        margin-top: 10px;
+        font-size: 16px;
     }
 }
