@@ -22,7 +22,7 @@
     --brandRed: #dc0000;
     --brandBlue: #003eb1;
     --brandBlueLight: #2370ff;
-  
+
 }
 
 .tp-caption span {
@@ -86,7 +86,9 @@ header.sticky nav {
     display: flex !important;
 }
 
-nav.header-dark .navbar-nav>li>a {
+nav.header-dark .navbar-nav>li>a,
+header.header-appear nav.header-dark .navbar-nav>li.dropdown.on>a,
+header.sticky nav.header-dark .navbar-nav>li.dropdown.on>a {
     color: #1c1c1c !important;
 }
 

@@ -610,68 +610,7 @@
         
         /* form to email */
         /* contact form validation on submit */
-        $(document).on('click', '.submit', function () {
-            var error = false,
-                    captchaFlag = false,
-                    _this = $(this),
-                    formObj = _this.parents('form'),
-                    emailFormat = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/,
-                    telFormat = /[0-9 -()+]+$/,
-                    actionURL = formObj.attr('action'),
-                    resultsObj = formObj.find('.form-results'),
-                    grecaptchav3 = _this.attr('data-sitekey') || '',
-                    redirectVal = formObj.find('[name="redirect"]').val();
-            formObj.find('.required').removeClass('required-error');
-            formObj.find('.required').each(function () {
-                var __this = $(this),
-                        fieldVal = __this.val();
-                if (fieldVal == '' || fieldVal == undefined) {
-                    error = true;
-                    __this.addClass('required-error');
-                } else if (__this.attr('type') == 'email' && !emailFormat.test(fieldVal)) {
-                    error = true;
-                    __this.addClass('required-error');
-                } else if (__this.attr('type') == 'tel' && !telFormat.test(fieldVal)) {
-                    error = true;
-                    __this.addClass('required-error');
-                }
-            });
-            var termsObj = formObj.find('.terms-condition');
-            if (termsObj.length > 0) {
-                if (!termsObj.is(':checked')) {
-                    error = true;
-                    termsObj.addClass('required-error');
-                }
-            }
-            
-            /* google reCaptcha verify */
-            if (typeof (grecaptcha) !== 'undefined' && grecaptcha !== null) {
-                if (formObj.find('.g-recaptcha').length > 0) { // For Version 2
-                    var gResponse = grecaptcha.getResponse();
-                    if (!(gResponse.length)) {
-                        error = true;
-                        formObj.find('.g-recaptcha').addClass('required-error');
-                    }
-                } else if (grecaptchav3 != '' && grecaptchav3 != undefined) { // For Version 3
-                    captchaFlag = true;
-                    formObj.find('input[name=action],input[name=g-recaptcha-response]').remove();
-                    grecaptcha.ready(function () {
-                        grecaptcha.execute(grecaptchav3, {action: 'subscribe_newsletter'}).then(function (token) {
-                            formObj.prepend('<input type="hidden" name="g-recaptcha-response" value="' + token + '">');
-                            formObj.prepend('<input type="hidden" name="action" value="subscribe_newsletter">');
 
-                            if (!error) {
-                                submitAJAXForm(_this);
-                            }
-                        });
-                    });
-                }
-            }
-            if (!error && !captchaFlag) { // Check no errors && no google reCaptcha V3
-                submitAJAXForm(_this);
-            }
-            return false;
-        });
 
         /* Contact form validation on blur */
         $(document).on('blur', '.required', function () {
@@ -1856,44 +1795,6 @@
     }
 
     /* submit form using ajax */
-    function submitAJAXForm(_this) {
 
-        var formObj = _this.parents('form'),
-                actionURL = formObj.attr('action'),
-                resultsObj = formObj.find('.form-results'),
-                redirectVal = formObj.find('[name="redirect"]').val();
-
-        if (actionURL != '' && actionURL != undefined) {
-            _this.addClass('loading');
-            $.ajax({
-                type: 'POST',
-                url: actionURL,
-                data: formObj.serialize(),
-                success: function (result) {
-                    _this.removeClass('loading');
-                    if (redirectVal != '' && redirectVal != undefined) {
-                        window.location.href = redirectVal;
-                    } else {
-                        if (typeof (result) !== 'undefined' && result !== null) {
-                            result = $.parseJSON(result);
-                        }
-                        formObj.find('input[type=text],input[type=email],input[type=tel],input[type=password],textarea').each(function () {
-                            $(this).val('');
-                            $(this).removeClass('required-error');
-                        });
-                        formObj.find('.g-recaptcha').removeClass('required-error');
-                        formObj.find('input[type=checkbox],input[type=radio]').prop('checked', false);
-                        if (formObj.find('.g-recaptcha').length > 0) {
-                            grecaptcha.reset();
-                        }
-                        formObj.find('input[name=action],input[name=g-recaptcha-response]').remove();
-                        resultsObj.removeClass('alert-success').removeClass('alert-danger').hide();
-                        resultsObj.addClass(result.alert).html(result.message);
-                        resultsObj.removeClass('d-none').fadeIn('slow').delay(4000).fadeOut('slow');
-                    }
-                }
-            });
-        }
-    }
 
 })(jQuery);

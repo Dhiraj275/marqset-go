@@ -485,7 +485,7 @@
     <!-- end portfolio section -->
     <!-- start client section -->
 
-    <section id="clients"> 
+    <section id="clients">
         <div class="text-center">
             <div class="alt-font text-dark title mb-0 w-75 mx-auto">
                 <div style="font-size: 18px;" class="text-dark margin-5px-bottom text-small">WITH OUR CREATIVE SOLUTIONS
@@ -1238,10 +1238,12 @@
                         class="margin-55px-bottom text-white-2 alt-font font-weight-600 text-uppercase md-margin-30px-bottom sm-margin-15px-bottom">
                         Ready to Get a Quote? Reach Out to MarqSet Now!</h5>
                     <div>
-                        <form onsubmit="sendMail()" id="contact-form-2" method="post">
+                        <div id="contact-form-2">
                             <div class="row justify-content-center">
                                 <div class="col-12 wow animate__fadeIn text-center">
-                                    <div class="form-results d-none"></div>
+                                    <div class="form-results  alert-success" style="display: none;">
+                                        Your message
+                                        has been sent successfully!</div>
                                     <input type="text" name="name" id="name" placeholder="Name*"
                                         class="input-border-bottom required">
                                     <input type="email" name="email" id="email" placeholder="E-mail*"
@@ -1250,12 +1252,12 @@
                                         class="input-border-bottom">
                                     <textarea name="comment" id="comment" placeholder="Your Message"
                                         class="input-border-bottom"></textarea>
-                                    <button id="contact-us-button-2" type="submit"
+                                    <button onclick="sendEmail()" id="contact-us-button-2" type="button"
                                         class="brand-button margin-30px-top sm-margin-three-top submit">Send
                                         Message</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1359,6 +1361,54 @@
             </div>
         </div>
     </footer>
+    <script>
+        function sendEmail() {
+            const email = document.getElementById("email");
+            const name = document.getElementById("name");
+            const message = document.getElementById("comment");
+            const subject = document.getElementById("subject");
+
+            let isValid = true;  // Flag to track if the form is valid
+
+            // Check if fields are empty and add a class if needed
+            if (email.value === "") {
+                email.classList.add("required-error");
+                isValid = false;
+            } else {
+                email.classList.remove("required-error");
+            }
+
+            if (name.value === "") {
+                name.classList.add("required-error");
+                isValid = false;
+            } else {
+                name.classList.remove("required-error");
+            }
+
+            if (message.value === "") {
+                message.classList.add("required-error");
+                isValid = false;
+            } else {
+                message.classList.remove("required-error");
+            }
+
+            if (subject.value === "") {
+                subject.classList.add("required-error");
+                isValid = false;
+            } else {
+                subject.classList.remove("required-error");
+            }
+            if (isValid) {
+                fetch(`https://angry-vest-lion.cyclic.app/send-mail?name=${name.value}&email=${email.value}&subject=${subject.value}&message=${message.value}`).then(e => {
+                    e.json().then((e) => {
+                        console.log(e)
+                    })
+                }).then(() => {
+                    document.querySelector(".form-results").style.display = "block"
+                })
+            }
+        }
+    </script>
     <!-- end footer section -->
     <!-- start scroll to top -->
     <a class="scroll-top-arrow" href="javascript:void(0);"><i class="ti-arrow-up"></i></a>
@@ -1375,17 +1425,7 @@
 
     <!-- setting -->
     <script type="text/javascript" src="js/main.js"></script>
-    <script>
-        const sendMail = async () => {
-            const email = document.getElementById("email")
-            const name = document.getElementById("name")
-            const message = document.getElementById("comment")
-            const subject = document.getElementById("subject")
-            var data = await fetch(`http://localhost:4000/send-mail?name=${name}&email=${email}&subject=${subject}&message=${message}`)
-            var newData = await data.json()
-            console.log(newData);
-        }
-    </script>
+
 </body>
 
 </html>
